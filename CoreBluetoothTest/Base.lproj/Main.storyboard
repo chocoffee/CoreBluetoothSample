@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CoreBluetoothTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,90 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9IU-4h-3oU">
+                                <state key="normal" title="Scan開始"/>
+                                <connections>
+                                    <action selector="startScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RNN-dm-Sci"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sua-4e-Vgh">
+                                <state key="normal" title="Scan終了"/>
+                                <connections>
+                                    <action selector="stopScan:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yhb-iJ-LnZ"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EPz-8L-fMe">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7WU-ue-lIm"/>
+                                    <constraint firstAttribute="width" constant="295" id="QsT-Le-GPV"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfd-KH-p0Q">
+                                <state key="normal" title="send"/>
+                                <connections>
+                                    <action selector="sendMessage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zve-Jc-4ne"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FZA-18-PTk">
+                                <frame key="frameInset" minX="16" minY="176" width="343" height="445"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oB3-QP-Evi">
+                                <state key="normal" title="アドバタイズ開始"/>
+                                <connections>
+                                    <action selector="startAdvertite:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Stu-xB-RaP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8BZ-Wz-bRl">
+                                <state key="normal" title="アドバタイズ終了"/>
+                                <connections>
+                                    <action selector="stopArvertisement:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NAs-B3-xTi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIp-zy-zgt">
+                                <state key="normal" title="サービス一覧取得"/>
+                                <connections>
+                                    <action selector="getService:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EY4-aQ-iAc"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dfd-KH-p0Q" firstAttribute="top" secondItem="FZA-18-PTk" secondAttribute="bottom" constant="8" id="199-Vq-dJT"/>
+                            <constraint firstItem="FZA-18-PTk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3Ok-bF-voB"/>
+                            <constraint firstItem="sua-4e-Vgh" firstAttribute="top" secondItem="9IU-4h-3oU" secondAttribute="bottom" constant="8" id="4PM-KT-7la"/>
+                            <constraint firstItem="HIp-zy-zgt" firstAttribute="top" secondItem="8BZ-Wz-bRl" secondAttribute="bottom" constant="8" id="6FL-Ec-Mqr"/>
+                            <constraint firstItem="FZA-18-PTk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6XL-Sx-btT"/>
+                            <constraint firstItem="FZA-18-PTk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7xi-AS-OwA"/>
+                            <constraint firstItem="EPz-8L-fMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="B1b-oL-AqR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dfd-KH-p0Q" secondAttribute="trailing" constant="6" id="CQw-7Y-xcf"/>
+                            <constraint firstItem="oB3-QP-Evi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Emd-ZA-jQH"/>
+                            <constraint firstItem="8BZ-Wz-bRl" firstAttribute="top" secondItem="oB3-QP-Evi" secondAttribute="bottom" constant="8" id="PU3-W6-EDe"/>
+                            <constraint firstItem="8BZ-Wz-bRl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RY7-2j-o2m"/>
+                            <constraint firstItem="Dfd-KH-p0Q" firstAttribute="leading" secondItem="EPz-8L-fMe" secondAttribute="trailing" constant="8" id="aGn-fK-6Eq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Dfd-KH-p0Q" secondAttribute="bottom" constant="8" id="ae6-9R-Q0D"/>
+                            <constraint firstItem="oB3-QP-Evi" firstAttribute="top" secondItem="sua-4e-Vgh" secondAttribute="bottom" constant="8" id="exU-Uw-rtI"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="EPz-8L-fMe" secondAttribute="bottom" constant="8" id="h6h-iA-1fQ"/>
+                            <constraint firstItem="9IU-4h-3oU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="k3i-qS-fhf"/>
+                            <constraint firstItem="sua-4e-Vgh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nLT-ug-2bt"/>
+                            <constraint firstItem="HIp-zy-zgt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sLv-xh-r0a"/>
+                            <constraint firstItem="9IU-4h-3oU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-290.5" id="zG9-gs-2c1"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="messageField" destination="EPz-8L-fMe" id="SHY-pO-sjp"/>
+                        <outlet property="messageView" destination="FZA-18-PTk" id="ecR-Ar-kob"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
 </document>
