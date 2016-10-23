@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  CoreBluetoothTest
 //
-//  Created by guest on 2016/10/19.
-//  Copyright © 2016年 JEC. All rights reserved.
+//  Created by chocoffee on 2016/10/19.
+//  Copyright © 2016年 chocoffee, All rights reserved.
 //
 
 import UIKit
